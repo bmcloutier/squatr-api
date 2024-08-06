@@ -11,4 +11,10 @@ Rails.application.routes.draw do
 
   get "/rooms" => "rooms#index"
   get "/rooms/:id" => "rooms#show"
+
+  get "/users" => "users#index"
+  get "/users/:id" => "users#show"
+  post "/users" => "users#create"
+  patch "/users/:id" => "users#update"
+  delete "/users/:id" => "users#destroy"
 end
