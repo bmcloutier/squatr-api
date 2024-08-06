@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   # "hello every one"
 
   get "/rooms" => "rooms#index"
+  get "/rooms/:id" => "rooms#show"
 end
