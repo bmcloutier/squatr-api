@@ -4,6 +4,11 @@ class UsersController < ApplicationController
     render :index
   end
 
+  def show
+    @user = User.find_by(id: params[:id])
+    render :show
+  end
+
   def create
     @user = User.create(
       name: params[:name],
@@ -12,11 +17,6 @@ class UsersController < ApplicationController
       password_confirmation: params[:password_confirmation],
       image: params[:image],
     )
-    render :show
-  end
-
-  def show
-    @user = User.find_by(id: params[:id])
     render :show
   end
 
