@@ -38,5 +38,7 @@ Rails.application.routes.draw do
     post "/reviews" => "reviews#create"
     patch "/reviews/:id" => "reviews#update"
     delete "/reviews/:id" => "reviews#destroy"
+
+    post "/sessions" => "sessions#create"
   end
 end
