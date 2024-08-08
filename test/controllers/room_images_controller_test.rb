@@ -24,10 +24,10 @@ class RoomImagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update room_image" do
-    patch "/room_images/#{@room_image.id}.json", params: { url: "http://example.com/updated_image.jpg" }
+    patch "/room_images/#{@room_image.id}.json", params: { room_id: rooms(:one).id, url: "http://example.com/updated_image.jpg" }
     assert_response :success
     @room_image.reload
-    assert_equal "http://example.com/updated_image.jpg", @room_images.url
+    assert_equal "http://example.com/updated_image.jpg", @room_image.url
   end
 
   test "should destroy room_image" do

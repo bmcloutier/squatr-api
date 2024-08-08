@@ -8,25 +8,25 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get reservations_url
+    get reservations_path
     assert_response :success
   end
 
   test "should show reservation" do
-    get reservations_url(@reservation)
+    get reservations_path(@reservation)
     assert_response :success
   end
 
   test "should create reservation" do
     assert_difference("Reservation.count") do
-      post reservations_url, params: { reservation: { user_id: users(:one).id, room_id: rooms(:one).id, start_date: "2023-01-01", end_date: "2023-01-10", price: 100, total: 1000 } }
+      post reservations_path, params: { user_id: users(:one).id, room_id: rooms(:one).id, start_date: "2023-01-01", end_date: "2023-01-10", price: 100, total: 1000 }
     end
 
     assert_response :success
   end
 
   test "should update reservation" do
-    patch reservations_url(@reservation), params: { reservation: { start_date: "2023-01-05" } }
+    patch "/reservations/#{@reservation.id}.json", params: { start_date: "2023-01-05" }
     assert_response :success
     @reservation.reload
     assert_equal "2023-01-05", @reservation.start_date
@@ -34,7 +34,7 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy reservation" do
     assert_difference("Reservation.count", -1) do
-      delete reservations_url(@reservation)
+      delete "/reservations/#{@reservation.id}.json"
     end
 
     assert_response :success
