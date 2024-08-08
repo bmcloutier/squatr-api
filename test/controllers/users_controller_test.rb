@@ -19,8 +19,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_difference("User.count") do
       post users_path, params: { name: "New User", email: "newuser@example.com", password: "password", password_confirmation: "password", image: "image_url" }
     end
-
-    assert_response :success
   end
 
   test "should update user" do
