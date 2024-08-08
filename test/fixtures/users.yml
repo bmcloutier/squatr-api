@@ -8,6 +8,6 @@ one:
 
 two:
   name: MyString
-  email: MyString
+  email: "peterjang@wild.com"
   password_digest: MyString
   image: MyString
