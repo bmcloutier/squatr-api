@@ -25,9 +25,9 @@ class UsersController < ApplicationController
     @user.update(
       name: params[:name] || @user.name,
       email: params[:email] || @user.email,
-      password: params[:password] || @user.password,
-      password_confirmation: params[:password_confirmation] || @user.password_confirmation,
-      image: params[:image] || @user.image,
+      # password: params[:password] || @user.password,
+      # password_confirmation: params[:password_confirmation] || @user.password_confirmation,
+      #   image: params[:image] || @user.image,
     )
     render :show
   end
